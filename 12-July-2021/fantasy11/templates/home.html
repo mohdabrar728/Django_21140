@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images.theconversation.com/files/399774/original/file-20210510-5797-vhfz6b.jpeg?ixlib=rb-1.1.0&rect=0%2C258%2C5570%2C2785&q=45&auto=format&w=668&h=324&fit=crop" width="100%"  height="5%"  alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Think Big Play Big</h5>
+                <p>The whole caption will only show up if the screen is at least medium size.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://gumlet.assettype.com/freepressjournal%2F2021-04%2F57febca9-cfc3-4ae5-98ee-120b55298aae%2FEx5fFhHU4AA_V6j.jpg?w=400&dpr=2.6" width="100%"  height="5%"  alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img src="https://resources.pulse.icc-cricket.com/ICC/photo/2018/07/16/cd2fd2a2-f2a3-40e3-b61c-0fe4b51ace6f/ICC-Cricket-World-Cup-CS-_8.jpg" width="100%"  alt="Third slide">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+{% endblock %}
