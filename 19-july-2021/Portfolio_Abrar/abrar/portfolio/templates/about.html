@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 {% include 'div-box.html' %}
 <div class="container" style="color:white;">
@@ -11,7 +12,7 @@
 </div>
 </div>
   <div class="row">
-    <div class="col-sm-3 col-md-3"><br><img src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="250" height="260"></div>
+    <div class="col-sm-3 col-md-3"><br><img src="{% static 'second.png' %}" width="250" height="260"></div>
     <div class="col-sm-3 offset-sm-2 col-md-6 offset-md-0">
         <div class="row">
     <div class="col-6 col-sm-6"><br>
