@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from .models import Data
 # Create your views here.
 def home(request):
@@ -18,9 +18,10 @@ def research_paper(request):
 
 def contact(request):
     if request.method == "POST":
-        name = request.POST.get("name")
+        #name = request.POST.get("name")
         email = request.POST.get("mail")
         msg = request.POST.get("message")
-        b = Data(name=name,email=email,msg=msg)
+        b = Data(name="name",email=email,msg=msg)
         b.save()
+        return HttpResponse("Successfully......")
     return render(request, "contact.html")
