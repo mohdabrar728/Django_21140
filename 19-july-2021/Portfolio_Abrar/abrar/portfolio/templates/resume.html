@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 {% include 'div-box.html' %}
 <div class="container" style="color:white;">
@@ -12,5 +13,9 @@
 <li>Having Basic knowledge of HTML, CSS, and Bootstrap.</li><br>
 <li>A good team player with excellent Communication, Interpersonal, Organizational and Leadership Skills,<br> with the ability to work and adapt quickly to new environments.</li><br>
 </ul>
+    <center>
+        <a href="{% static 'MOHAMMED_ABRARUDDIN.docx' %}" download>
+            <button type="button" class="btn btn-success" >Download</button></a>
+    </center>
 </div>
 {% endblock %}
