@@ -27,6 +27,7 @@ def udata(req, id):
     if req.method == 'POST':
         pi = LM_Model.objects.get(pk=id)
         fa = Fclass(req.POST, instance=pi)
+        print(pi)
         if fa.is_valid():
             fa.save()
     else:
@@ -38,5 +39,6 @@ def udata(req, id):
 def ddata(req, id):
     if req.method == 'POST':
         pi = LM_Model.objects.get(pk=id)
+        print(pi)
         pi.delete()
         return HttpResponseRedirect('/')

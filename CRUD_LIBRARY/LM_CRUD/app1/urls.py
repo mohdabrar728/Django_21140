@@ -3,6 +3,6 @@ from .views import show, udata, ddata
 
 urlpatterns = [
     path("", show),
-    path("udata", udata,name = 'udata'),
-    path("ddata", ddata,name = 'ddata'),
+    path("udata/<int:id>/", udata,name = 'udata'),
+    path("ddata/<int:id>/", ddata,name = 'ddata'),
 ]
