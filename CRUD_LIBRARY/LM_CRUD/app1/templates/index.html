@@ -87,13 +87,37 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Update Book Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <form action="" method="POST">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>Book Name</td>
+                        <td>{{form.book_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Author Name</td>
+                        <td>{{form.author_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Category</td>
+                        <td>{{form.category}}</td>
+                    </tr>
+                    <tr>
+                        <td>ISBN</td>
+                        <td>{{form.ISBN}}</td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                        <td>{{form.quantity}}</td>
+                    </tr>
+                </table>
+            </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
