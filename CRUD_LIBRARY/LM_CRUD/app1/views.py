@@ -39,6 +39,5 @@ def udata(req, id):
 def ddata(req, id):
     if req.method == 'POST':
         pi = LM_Model.objects.get(pk=id)
-        print(pi)
         pi.delete()
         return HttpResponseRedirect('/')
