@@ -33,7 +33,7 @@ def udata(req, id):
     else:
         pi = LM_Model.objects.get(pk=id)
         fa = Fclass(req.POST, instance=pi)
-    return render(req, "index.html", {'form': Fclass})
+    return render(req, "", {'form': Fclass})
 
 
 def ddata(req, id):
