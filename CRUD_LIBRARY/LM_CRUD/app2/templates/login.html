@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign In</h1>
+            <form action ="" method ="POST" novalidate>
+                {% csrf_token%}
+                {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                <p class="er">{{error}}</p>
+                {% endfor %}
+                {% endif %}
+                <table>
+                    {% for fm in form %}
+                    <tr><td>{{fm.label_tag}}</td> <td>{{fm}}</td><td> {{fm.error|striptags}}</td></tr>
+                    {% endfor %}
+                </table>
+                <input type="submit" class="btn" style="background-color:#c2982d;color:white;" value="Submit">
+            </form>
+            <a href="{% url 'signup' %}">SignUp</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

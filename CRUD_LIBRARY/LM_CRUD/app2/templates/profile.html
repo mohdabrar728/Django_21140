@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<h1>Profile Page</h1>
+<h3>welcome {{form}}</h3>
+{% if messages %}
+{% for message in messages %}
+<small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
+{% endfor %}
+{% endif %}
+<a href="{% url 'logout' %}">Logout</a>
+</div>
+{% endblock %}
