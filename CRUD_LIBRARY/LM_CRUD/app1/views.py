@@ -27,13 +27,12 @@ def udata(req, id):
     if req.method == 'POST':
         pi = LM_Model.objects.get(pk=id)
         fa = Fclass(req.POST, instance=pi)
-        print(pi)
         if fa.is_valid():
             fa.save()
     else:
         pi = LM_Model.objects.get(pk=id)
-        fa = Fclass(req.POST, instance=pi)
-    return render(req, "", {'form': Fclass})
+        fa = Fclass(instance=pi)
+    return render(req,"edit.html", {'form1': fa})
 
 
 def ddata(req, id):
