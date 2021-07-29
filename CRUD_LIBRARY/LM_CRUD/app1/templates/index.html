@@ -28,14 +28,16 @@
                         <td>{{form.quantity}}</td>
                     </tr>
                 </table>
-                <center><button type="submit" class="btn" style="background-color:#c2982d; color:white;">Add</button></center>
+                <center>
+                    <button type="submit" class="btn" style="background-color:#c2982d; color:white;">Add</button>
+                    <a href="{% url 'logout' %}"} class="btn" style="background-color:#c2982d;color:white;">Logout</a>
+                </center>
             </form><br>
 
         </div>
         <div class="col-8">
           <table class="table table-striped">
               <tr style="background-color:#c2982d;color:white;">
-                  <th>S.No</th>
                   <th>Book Name</th>
                   <th>Author Name</th>
                   <th>Category</th>
@@ -46,7 +48,6 @@
               </tr>
               {% for item in data %}
               <tr>
-                  <td>{{item.id}}</td>
                   <td>{{item.book_name}}</td>
                   <td>{{item.author_name}}</td>
                   <td>{{item.category}}</td>

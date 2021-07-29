@@ -20,6 +20,6 @@ app_name = 'app1'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("app2.urls")),
-    path('app1', include("app1.urls")),
+    path('', include("app2.urls"),name='profile'),
+    path('app1/', include("app1.urls")),
 ]

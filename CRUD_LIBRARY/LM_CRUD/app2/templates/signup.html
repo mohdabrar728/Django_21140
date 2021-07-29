@@ -13,7 +13,7 @@
                 {% endif %}
                 <table>
                     {% for fm in form %}
-                        <tr><td>{{fm.label_tag}}</td> <td>{{fm}}</td><td> {{fm.error|striptags}}</td></tr>
+                        <tr><td>{{fm.label_tag}}</td> <td>{{fm}}</td><td> {{fm.errors|striptags}}</td></tr>
                     {% endfor %}
                 </table>
                 <input type="submit" class='btn' style="background-color:#c2982d;color:white;" value="Submit">

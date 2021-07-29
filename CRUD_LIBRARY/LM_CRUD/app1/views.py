@@ -40,4 +40,4 @@ def ddata(req, id):
     if req.method == 'POST':
         pi = LM_Model.objects.get(pk=id)
         pi.delete()
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/app1/show')
