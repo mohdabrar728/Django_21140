@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .froms import Fclass
 from .models import LM_Model
-
+from datetime import datetime, timedelta
 
 # Create your views here.
 def show(req):
