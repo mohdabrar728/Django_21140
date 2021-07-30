@@ -6,22 +6,24 @@ from .models import LM_Model
 
 # Create your views here.
 def show(req):
-    if req.method == 'POST':
-        fm = Fclass(req.POST)
-        if fm.is_valid():
-            book_name = fm.cleaned_data['book_name']
-            author_name = fm.cleaned_data['author_name']
-            category = fm.cleaned_data['category']
-            ISBN = fm.cleaned_data['ISBN']
-            quantity = fm.cleaned_data['quantity']
-            store = LM_Model(book_name=book_name, author_name=author_name, category=category,
-                             ISBN=ISBN, quantity=quantity)
-            store.save()
+    if req.user.is_authenticated:
+        if req.method == 'POST':
+            fm = Fclass(req.POST)
+            if fm.is_valid():
+                book_name = fm.cleaned_data['book_name']
+                author_name = fm.cleaned_data['author_name']
+                category = fm.cleaned_data['category']
+                ISBN = fm.cleaned_data['ISBN']
+                quantity = fm.cleaned_data['quantity']
+                store = LM_Model(book_name=book_name, author_name=author_name, category=category,
+                                 ISBN=ISBN, quantity=quantity)
+                store.save()
+                fm = Fclass()
+        else:
             fm = Fclass()
+        return render(req, "index.html", {'form': Fclass, 'data': LM_Model.objects.all()})
     else:
-        fm = Fclass()
-    return render(req, "index.html", {'form': Fclass, 'data': LM_Model.objects.all()})
-
+        return HttpResponseRedirect('/login')
 
 def udata(req, id):
     if req.method == 'POST':
