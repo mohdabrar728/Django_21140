@@ -30,8 +30,7 @@
                 </table>
                 <center>
                     <button type="submit" class="btn" style="background-color:#c2982d; color:white;">Add</button>
-                    <a href="{% url 'logout' %}" class="btn" style="background-color:#c2982d;color:white;">Logout</a>
-                    <a href="{% url 'change' %}" class="btn" style="background-color:#c2982d;color:white;">Password Change</a>
+                    <a href="{% url 'logout' %}"} class="btn" style="background-color:#c2982d;color:white;">Logout</a>
                 </center>
             </form><br>
 
@@ -54,9 +53,8 @@
                   <td>{{item.category}}</td>
                   <td>{{item.ISBN}}</td>
                   <td>{{item.quantity}}</td>
-                    <td>
-                        <a type="submit" class="btn btn-success btn-sm"  href="{% url 'udata' item.id %}"  >Edit</a>
-                        <form action="{% url 'ddata' item.id %}" method="POST" class="d-inline">{% csrf_token %}
+                  <td><button type="submit" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Edit</button></td>
+                  <td><form action="{% url 'ddata' item.id %}" method="POST" class="d-inline">{% csrf_token %}
                   <input class="btn btn-danger btn-sm" type="submit" value="Delete">
                   </form></td>
               </tr>
@@ -65,7 +63,6 @@
         </div>
     </div>
 </div>
-<!--
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -79,12 +76,26 @@
         <form action="" method="POST">
                 {% csrf_token %}
                 <table>
-                    {% for i in form1 %}
                     <tr>
-                        <td>{{i.label_tag}}</td>
-                        <td>{{i}}</td>
+                        <td>Book Name</td>
+                        <td>{{form.book_name}}</td>
                     </tr>
-                    {% endfor %}
+                    <tr>
+                        <td>Author Name</td>
+                        <td>{{form.author_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Category</td>
+                        <td>{{form.category}}</td>
+                    </tr>
+                    <tr>
+                        <td>ISBN</td>
+                        <td>{{form.ISBN}}</td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                        <td>{{form.quantity}}</td>
+                    </tr>
                 </table>
             </form>
       </div>
@@ -95,5 +106,4 @@
     </div>
   </div>
 </div>
--->
 {% endblock %}
