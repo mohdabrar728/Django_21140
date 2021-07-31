@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app1.views import show,stop
+from app1.views import show, stop, pause
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', show, name='show'),
-    path('stop',stop,name='stop'),
+    path('stop', stop, name='stop'),
+    path('pause', pause, name='pause'),
 ]
