@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4" ></div>
+    <div class="col-md-5" ><br>
+        <h1 class="login-box-msg">Student Signup</h1>
+        <div class="card">
+            <div style="margin:50px">
+                <form action="" method="POST" novalidate>
+                    {% csrf_token %}
+                                    <table cellpadding="8">
+                                        {% for field in form %}
+                                        <tr><td>{{field.label_tag}}</td><td>{{field}}</td><td>{{field.errors|striptags}}</td></tr>
+                                        {% endfor %}
+                                    </table>{% if form.errors %}
+                    <ul class="user-msg error">
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>
+                              {% if field != '__all__' %}
+                                <strong>{{ field.label }}:</strong>
+                              {% endif %}
+                              {{ error }}
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                            <br>
+                    <center>
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                        <a href="{% url 'student_login' %}" class="btn btn-primary">Login</a>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{% endblock content %}

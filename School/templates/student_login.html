@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4" ></div>
+    <div class="col-md-4" ><br>
+        <h1 class="login-box-msg">Student Login</h1>
+        <div class="card">
+            <div style="margin:50px">
+                <form action="" method="POST" novalidate>
+                  {% csrf_token %}
+                    <table cellpadding="8">
+                        {% for field in form %}
+                        <tr><td>{{field.label_tag}}</td><td>{{field}}</td><td>{{field.errors|striptags}}</td></tr>
+                        {% endfor %}
+                    </table>
+                    <center>
+                        <input type="submit" value="Login" class="btn btn-primary">
+                        <a href="{% url 'student_registration' %}" class="btn btn-primary">Registration</a>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+{% endblock content %}
