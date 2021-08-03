@@ -38,6 +38,12 @@ def student_login(request):
         fm = AuthenticationForm()
     return render(request, 'student_login.html', {'form': fm})
 
+
+def view_attendance(request):
+    return render(request, 'view_attendance.html')
+
 def logout(request):
-    logout(request)
-    return HttpResponseRedirect('logout')
+    if request.method == 'POST':
+        logout(request)
+    fm = AuthenticationForm()
+    return render(request, 'student_login.html', {'form': fm})
