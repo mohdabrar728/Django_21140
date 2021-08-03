@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .our_forms import StudentForm
 from django.contrib.auth import get_user_model, authenticate, login
 from django.contrib import messages
+import socket
 
 User = get_user_model()
 
@@ -29,7 +30,10 @@ def student_login(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, 'Logged in sucessfully !!')
-                return HttpResponse('Logged in sucessfully !!')
+                hostname = socket.gethostname()
+                IPAddr = socket.gethostbyname(hostname)
+                return render(request, 'student_dashboard.html', {'username': fm.cleaned_data['username'],
+                                                                  'hostname': hostname, 'IPAddr': IPAddr})
     else:
         fm = AuthenticationForm()
     return render(request, 'student_login.html', {'form': fm})
