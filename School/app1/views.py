@@ -37,3 +37,7 @@ def student_login(request):
     else:
         fm = AuthenticationForm()
     return render(request, 'student_login.html', {'form': fm})
+
+def logout(request):
+    logout(request)
+    return HttpResponseRedirect('logout')

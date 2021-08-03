@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+import pygame
 
 # Create your views here.
 def show(request):
