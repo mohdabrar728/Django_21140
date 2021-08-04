@@ -26,4 +26,7 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
-admin.site.register(ViewAttendance)
+
+@admin.register(ViewAttendance)
+class ShowViewAttendance(admin.ModelAdmin):
+    list_display = ['username','date_of_attend','attending']

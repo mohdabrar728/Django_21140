@@ -4,6 +4,8 @@ from django.shortcuts import render
 from .our_forms import StudentForm
 from django.contrib.auth import get_user_model, authenticate, login
 from django.contrib import messages
+from .models import ViewAttendance
+from .our_forms import LeaveForm
 import socket
 
 User = get_user_model()
@@ -30,20 +32,33 @@ def student_login(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, 'Logged in sucessfully !!')
-                hostname = socket.gethostname()
-                IPAddr = socket.gethostbyname(hostname)
-                return render(request, 'student_dashboard.html', {'username': fm.cleaned_data['username'],
-                                                                  'hostname': hostname, 'IPAddr': IPAddr})
+                return HttpResponseRedirect('student_dashboard')
     else:
         fm = AuthenticationForm()
     return render(request, 'student_login.html', {'form': fm})
 
 
+def student_dashboard(request):
+    if request.user.is_authenticated:
+        hostname = socket.gethostname()
+        IPAddr = socket.gethostbyname(hostname)
+        return render(request, 'student_dashboard.html', {'username': request.user,
+                                                          'hostname': hostname, 'IPAddr': IPAddr})
+
 def view_attendance(request):
-    return render(request, 'view_attendance.html')
+    var = ViewAttendance.objects.all().filter(username=request.user)
+    present = len([i for i in var if i.attending])
+    return render(request, 'view_attendance.html', {'username':request.user,'var' : var,'len':len(var),
+                                                    'present':present,'absent':len(var)-present,
+                                                    'avg':"{:.2f}".format((present/len(var)*100))})
+
+def leave(request):
+    return render(request, 'apply_for_leave.html', {'leave':LeaveForm})
+
 
 def logout(request):
     if request.method == 'POST':
         logout(request)
     fm = AuthenticationForm()
     return render(request, 'student_login.html', {'form': fm})
+

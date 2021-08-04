@@ -11,10 +11,17 @@ class CustomUser(AbstractUser):
 
 
 class ViewAttendance(models.Model):
-    student_id = models.IntegerField(primary_key=True)
-    date  = models.DateField()
+    username = models.CharField(max_length=70)
+    date_of_attend  = models.DateField(max_length=70)
     BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
     attending = models.BooleanField(choices=BOOL_CHOICES)
 
-    def __str__(self):
-        return date
+
+class ApplyForLeave(models.Model):
+    username = models.CharField(max_length=70)
+    date_of_leave = models.DateField(max_length=70)
+    CHOICES = (
+        ('C', 'Casual Leave'),('L', 'Loss of Pay'),('S','Sick Leave'),
+    )
+    type_of_leave = models.CharField(max_length=70, choices=CHOICES)
+    message = models.CharField(max_length=70)

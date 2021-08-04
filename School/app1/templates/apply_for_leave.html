@@ -1,7 +1,7 @@
 {% extends 'dashboard.html' %}
 {% block main %}
 <div class="row">
-  <div class="col-2">
+  <div class="col-4">
 <main>
   <h1 class="visually-hidden">Sidebars examples</h1>
 
@@ -14,7 +14,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="home" class="nav-link active" aria-current="page">
+        <a href="student_dashboard" class="nav-link text-white" aria-current="page">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
           Home
         </a>
@@ -26,7 +26,7 @@
         </a>
       </li>
       <li>
-        <a href="leave" class="nav-link text-white">
+        <a href="leave" class="nav-link active">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
           Apply for Leave
         </a>
@@ -67,7 +67,18 @@
   </div>
 </main>
   </div>
-  <div class="col-10 ">
-</div>
+  <div class="col-5">
+      <br><h1 align="center">Leave Request</h1><br>
+      <center>
+          <form method="POST">
+              <table class="table table-borderless">
+                  {% for i in leave %}
+                  <tr><td>{{i.label_tag}}</td><td>{{i}}</td></tr>
+                  {% endfor %}
+              </table>
+              <input type="submit" value="Submit" class="btn btn-primary">
+          </form>
+      </center>
+  </div>
 </div>
 {% endblock %}
