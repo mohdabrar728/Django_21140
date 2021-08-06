@@ -73,7 +73,9 @@
           <form method="POST">
               <table class="table table-borderless">
                   {% for i in leave %}
-                  <tr><td>{{i.label_tag}}</td><td>{{i}}</td></tr>
+                      {% if i.label_tag != leave.username.label_tag %}
+                            <tr><td>{{i.label_tag}}</td><td>{{i}}</td></tr>
+                      {% endif %}
                   {% endfor %}
               </table>
               <input type="submit" value="Submit" class="btn btn-primary">
