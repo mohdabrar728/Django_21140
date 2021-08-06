@@ -14,3 +14,10 @@ def login(request):
          MyLoginForm = LoginForm()
 			
    return render(request, 'loggedin.html', {"username" : username}
+   
+def formView(request):
+   if request.session.has_key('username'):
+      username = request.session['username']
+      return render(request, 'loggedin.html', {"username" : username})
+   else:
+      return render(request, 'login.html', {})
