@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="script" href="{% static 'script.js' %}">
+</head>
+<body>
+<h1>Hello {{msg}}</h1>
+<img src="{% static 'download.png' %}">
+<button type="button"
+onclick="script.js">
+Click me to display Date and Time.</button>
+<p id="demo"></p>
+</body>
+</html>

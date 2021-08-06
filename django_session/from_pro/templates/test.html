@@ -1,0 +1,14 @@
+{% include 'base.html' %}
+<h1 align="center">Again</h1>
+<center>
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>normal</h1><br>
+        {{stu}}<hr>
+        <h1>paragraph</h1>
+        <br>
+        {{stu.as_ul}}<hr>
+        <h1>table</h1><br>
+    {{stu.as_table}}<hr>
+<button type="submit">Submit</button></form>
+</center>

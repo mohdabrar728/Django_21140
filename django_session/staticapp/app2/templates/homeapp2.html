@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'st.css' %}">
+    <script type="text/javascript" src="{% static 'script.js' %}"></script>
+    <script type="text/javascript" src="{% static 'time.js' %}"></script>
+</head>
+<body>
+<h1 align="center">Home App2</h1>
+<button onclick="myFunction()">Try it</button>
+
+<button onclick="myFunction1()">Check window</button>
+<button type="button" onclick="myFunctioner()">Set background color</button>
+<img src="{% static '' %}" width="100%"><br>
+<h1 align="center"> Show Tables</h1>
+<table border="1px solid black" style="border-collapse:collapse" align="center">
+    <th>student id</th>
+    <th>student name</th>
+      <th>student mail</th>
+    <th>student pass</th>
+{% for i in test %}
+    <tr><td>{{ i.stuid}}</td>
+        <td>{{ i.stuname }}</td>
+        <td>{{ i.stuemail }}</td>
+        <td>{{ i.stupass }}</td><br>
+    </tr>
+{% endfor %}
+    </table>
+
+
+
+<p id="demo"></p>
+</body>
+</html>
