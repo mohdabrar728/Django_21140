@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import StudentRegistration
 from .models import User
@@ -23,6 +25,13 @@ class UserAddShowView(TemplateView):
       pw = fm.cleaned_data['mail']
       reg = User(email=nm, subject=em, mail=pw)
       reg.save()
+
+      request.session['email'] = nm
+      request.session['subject'] = em
+      request.session.set_expiry(600)
+      response = render(request, 'show.html')
+      response.set_signed_cookie('subject', em, salt='movie_name',
+                                 expires=datetime.utcnow() + timedelta(days=2))
     return HttpResponseRedirect('/')
 
 # This Class will Update/Edit
