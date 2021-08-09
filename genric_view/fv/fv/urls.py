@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from app1.views import ShowForm,PrintForm
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', ShowForm.as_view(),name='showfrom'),
+    path('printfrom/', PrintForm.as_view(),name='printfrom'),
 ]
